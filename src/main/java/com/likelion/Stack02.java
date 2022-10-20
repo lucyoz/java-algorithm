@@ -18,13 +18,10 @@ public class Stack02 {
     }
 
     public void push(int value) {
-        this.arr[top] = value;
-        this.top++;
+        this.arr[this.top++] = value;
     }
 
     public Integer pop(){
-        this.top--;
-        int value = this.arr[top];
-        return value;
+        return this.arr[--this.top];
     }
 }
