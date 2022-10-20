@@ -36,7 +36,9 @@ public class Stack02 {
     }
 
     public Integer peek(){
-        return this.arr[--this.top];
+        int value = this.arr[--this.top];
+        this.top++;
+        return value;
     }
 
 }
