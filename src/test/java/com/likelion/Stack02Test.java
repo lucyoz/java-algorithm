@@ -62,6 +62,10 @@ class Stack02Test {
     @Test
     void realStack(){
         Stack<Integer> st = new Stack<>();
+
+        assertThrows(EmptyStackException.class, ()->{
+            st.peek();
+        });
         assertThrows(EmptyStackException.class, ()->{
             st.pop();
         });
@@ -70,6 +74,9 @@ class Stack02Test {
     @Test
     void peek(){
         Stack02 st = new Stack02();
+        assertThrows(EmptyStackException.class,()->{
+            st.peek();
+        });
         st.push(10);
         st.push(20);
         assertEquals(20, st.peek());

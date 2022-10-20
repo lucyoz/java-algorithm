@@ -36,6 +36,9 @@ public class Stack02 {
     }
 
     public Integer peek(){
+        if(isEmpty()){
+            throw new EmptyStackException();
+        }
         int value = this.arr[--this.top];
         this.top++;
         return value;
