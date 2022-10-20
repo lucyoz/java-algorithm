@@ -39,9 +39,7 @@ public class Stack02 {
         if(isEmpty()){
             throw new EmptyStackException();
         }
-        int value = this.arr[--this.top];
-        this.top++;
-        return value;
+        return this.arr[this.top - 1];
     }
 
 }
