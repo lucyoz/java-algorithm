@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Stack02Test {
 
+
+
     @BeforeEach     //각 테스트가 실행되기 전에 실행되는 구간
     void setUp() {
         // ex) DB에서 데이터 지우는 코드
@@ -33,6 +35,12 @@ class Stack02Test {
         st.push(20);
         assertEquals(20, st.pop());
         assertEquals(10, st.pop());
+    }
+
+    @Test
+    void is_Empty(){
+        Stack02 st = new Stack02();
+        assertTrue(st.isEmpty());
     }
 
 }

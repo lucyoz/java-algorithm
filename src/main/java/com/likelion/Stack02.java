@@ -24,4 +24,9 @@ public class Stack02 {
     public Integer pop(){
         return this.arr[--this.top];
     }
+
+    public boolean isEmpty(){
+        return this.top==0;
+    }
+
 }
