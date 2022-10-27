@@ -10,7 +10,7 @@ public class ARacer3 {
 
         for (int i = 0; i < participant.length; i++) {
             String key = participant[i];
-            if(memo.containsKey(key)){
+            if(!memo.containsKey(key)){
                 memo.put(key, 0);
             }
             memo.put(key, memo.get(key)+1);
