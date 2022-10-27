@@ -1,7 +1,9 @@
 package com.likelion.hash;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class HashTable3 {
     class Node{
@@ -21,7 +23,16 @@ public class HashTable3 {
             return value;
         }
     }
-    List<Node>[] table = new ArrayList[1000];
+    int size = 10000;
+    List<Map<String,Integer>>[] table = new ArrayList[1000];
+
+    public HashTable3() {
+    }
+
+    public HashTable3(int size) {
+        this.size = size;
+        this.table = new ArrayList[size];
+    }
 
     public int hash(String key){
         int asciiNum = 0;
@@ -36,30 +47,33 @@ public class HashTable3 {
         if (this.table[hashIdx]==null){
             this.table[hashIdx] = new ArrayList<>();
         }
-        this.table[hashIdx].add(new Node(key, value));
+        HashMap<String, Integer> hm = new HashMap();
+        hm.put(key, value);
+        this.table[hashIdx].add(hm);
         System.out.println(key+" "+hashIdx+"방에 저장되었습니다");
     }
 
-    public Integer search(String key){
-        List<Node> nodes = this.table[hash(key)];
-        for(Node node:nodes){
-            if(key.equals(node.getKey())){
-                return node.getValue();
-            }
-        }
+//    public Integer search(String key){
+//        List<Map<String,Integer>> nodes = this.table[hash(key)];
+//        for(Map node:nodes){
+//            //key가 일치하는지 확인
+//            if(key.equals()){
+//                return ;
+//            }
+//        }
+//
+//        return null;\....
+//    }
 
-        return null;
-    }
-
-    public static void main(String[] args) {
-        HashTable3 ht = new HashTable3();
-        ht.insert("Yoonseo",1);
-        ht.insert("Seoyoon",2);
-
-        if(ht.search("Yoonseo")==1 &&ht.search("Seoyoon")==2){
-            System.out.println("테스트성공");
-        } else {
-            System.out.println("테스트 실패");
-        }
-    }
+//    public static void main(String[] args) {
+//        HashTable3 ht = new HashTable3();
+//        ht.insert("Yoonseo",1);
+//        ht.insert("Seoyoon",2);
+//
+//        if(ht.search("Yoonseo")==1 &&ht.search("Seoyoon")==2){
+//            System.out.println("테스트성공");
+//        } else {
+//            System.out.println("테스트 실패");
+//        }
+//    }
 }

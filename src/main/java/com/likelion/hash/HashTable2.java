@@ -1,7 +1,5 @@
 package com.likelion.hash;
 
-import programmers.Solution42576;
-
 import java.util.ArrayList;
 import java.util.List;
 
