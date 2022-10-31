@@ -43,7 +43,7 @@ public class PrepareTest {
         //List -> Array로
         int[] result = new int[studentWithTheMaxScore.size()];
         for(int i=0;i<studentWithTheMaxScore.size();i++){
-            result[i] = studentWithTheMaxScore.get(0);
+            result[i] = studentWithTheMaxScore.get(i);
         }
         return result;
     }
