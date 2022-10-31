@@ -1,6 +1,8 @@
 package programmers.bruteforce;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class PrepareTest {
     public int[] solution(int[] answer){
@@ -24,22 +26,25 @@ public class PrepareTest {
         System.out.println(thirdStudentAnswerCnt);
 
         int[] score = {firstStudentAnswerCnt, secondStudentAnswerCnt, thirdStudentAnswerCnt};
-        int maxScore = score[0];
-        for(int i=0;i<score.length;i++){
-            if (maxScore<score[i]){
-                maxScore = score[i];
-            }
-        }
 
-        int k = 0;
-        int[] result = new int[3];
+        int maxScore = Math.max(score[0], Math.max(score[1], score[2]));
+
+        //max 구하기
+        //max와 같으면 append한다.
+//        int[] result = new int[3];
+        List<Integer> studentWithTheMaxScore = new ArrayList<>();
+
         for(int i=0;i<score.length;i++){
             if(maxScore == score[i]){
-                result[k] = i+1;
+                studentWithTheMaxScore.add(i+1);
             }
-            k++;
         }
 
+        //List -> Array로
+        int[] result = new int[studentWithTheMaxScore.size()];
+        for(int i=0;i<studentWithTheMaxScore.size();i++){
+            result[i] = studentWithTheMaxScore.get(0);
+        }
         return result;
     }
 
@@ -58,7 +63,7 @@ public class PrepareTest {
 
     public static void main(String[] args) {
         PrepareTest pt = new PrepareTest();
-        int[] answer = {1, 3,2,4,2};
+        int[] answer = {1, 2, 3, 4, 5};
         System.out.println(Arrays.toString(pt.solution(answer)));
     }
 }
