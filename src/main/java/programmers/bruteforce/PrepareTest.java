@@ -1,5 +1,7 @@
 package programmers.bruteforce;
 
+import java.util.Arrays;
+
 public class PrepareTest {
     public int[] solution(int[] answer){
         /*
@@ -20,7 +22,25 @@ public class PrepareTest {
         System.out.println(firstStudentAnswerCnt);
         System.out.println(secondStudentAnswerCnt);
         System.out.println(thirdStudentAnswerCnt);
-        return new int[0];
+
+        int[] score = {firstStudentAnswerCnt, secondStudentAnswerCnt, thirdStudentAnswerCnt};
+        int maxScore = score[0];
+        for(int i=0;i<score.length;i++){
+            if (maxScore<score[i]){
+                maxScore = score[i];
+            }
+        }
+
+        int k = 0;
+        int[] result = new int[3];
+        for(int i=0;i<score.length;i++){
+            if(maxScore == score[i]){
+                result[k] = i+1;
+            }
+            k++;
+        }
+
+        return result;
     }
 
     public int StudentAnswerCnt(int[] student, int[] answer){
@@ -38,7 +58,7 @@ public class PrepareTest {
 
     public static void main(String[] args) {
         PrepareTest pt = new PrepareTest();
-        int[] answer = {1, 2, 3, 4, 5};
-        pt.solution(answer);
+        int[] answer = {1, 3,2,4,2};
+        System.out.println(Arrays.toString(pt.solution(answer)));
     }
 }
