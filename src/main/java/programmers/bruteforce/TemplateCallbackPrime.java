@@ -23,12 +23,11 @@ public class TemplateCallbackPrime {
 
     public static void main(String[] args) {
         TemplateCallbackPrime tcp = new TemplateCallbackPrime();
-        boolean r = tcp.isPrime(13, new StatementStrategy() {
-            @Override
-            public boolean compare(int a, int b) {
-                return a * a <= b;
-            }
-        });
-        System.out.println(r);
+        boolean r1 = tcp.isPrime(17, (a,b) -> a<b);
+        boolean r2 = tcp.isPrime(17, (a,b) -> a<b/2);
+        boolean r3 = tcp.isPrime(17, (a,b) -> a*a<b);
+        System.out.println(r1);
+        System.out.println(r2);
+        System.out.println(r3);
     }
 }
