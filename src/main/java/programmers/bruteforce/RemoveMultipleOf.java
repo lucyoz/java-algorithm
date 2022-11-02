@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RemoveMultipleOf {
 
-
+    //프로그래머스 [시간초과]
     public static void main(String[] args) {
         int N = 50;   //50미만의 모든 소수를 구하기
 
