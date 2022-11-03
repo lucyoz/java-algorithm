@@ -15,6 +15,19 @@ public class LoopCheckIdx {
             nums[i] = i+2;
         }
 
+        // 2의 배수 지우기
+        int multipleOf = 2;//(2의 배수)
+        for(int i=2;i<nums.length;i+=2){
+            checks[i] = false;
+        }
+
+        //checks를 참고해서 true인 nums[i]만 출력
+        for(int i=0;i<checks.length;i++){
+            if (checks[i] == true){
+                System.out.println(nums[i]);
+            }
+        }
+
 
     }
 }
