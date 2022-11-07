@@ -1,8 +1,20 @@
 package programmers.bruteforce;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class LoopCheckIdx {
+
+    public static void printNums(int[] nums, boolean[] checks){
+        int cnt = 0;
+        for(int i=0;i<checks.length;i++){
+            if(checks[i]){
+                cnt++;
+            }
+        }
+        System.out.println(cnt);
+    }
 
     public static void main(String[] args) {
 
@@ -15,18 +27,15 @@ public class LoopCheckIdx {
             nums[i] = i+2;
         }
 
-        // 2의 배수 지우기
-        int multipleOf = 2;//(2의 배수)
-        for(int i=2;i<nums.length;i+=2){
-            checks[i] = false;
-        }
+        //nums[j] + j 가 왜 2n? ->
+        for (int j = 0; j*j <= N; j++) {
 
-        //checks를 참고해서 true인 nums[i]만 출력
-        for(int i=0;i<checks.length;i++){
-            if (checks[i] == true){
-                System.out.println(nums[i]);
+            int multipleOf = nums[j]; //j=0 nums[0]=2
+            for(int i=nums[j]+j;i<nums.length;i+=multipleOf){
+                checks[i] = false;
             }
         }
+        printNums(nums,checks);
 
 
     }
