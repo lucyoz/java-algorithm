@@ -5,6 +5,7 @@ public class BinarySearch {
         int[] nums = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
         int targetNum = 7;
         int startIdx = 0, endIdx = nums.length - 1;
+        int targetIdx = -1;
 
         while(startIdx<=endIdx){
             //중간값 찾기
@@ -17,9 +18,11 @@ public class BinarySearch {
                 startIdx = midIdx - 1;
             } else {
                 System.out.println(midIdx);
+                targetIdx = -1;
                 break;
             }
 
+            System.out.println(targetIdx);
         }
 
     }
