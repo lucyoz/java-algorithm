@@ -1,23 +1,25 @@
 package Sort;
 
 import java.util.Arrays;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
-interface StatemetnStrategy{
+interface SortStrategy{
     boolean apply(int a, int b);
 }
 
 public class SelectionSort {
-    public int[] selectionSort(int[] arr, StatemetnStrategy stmt){
+    public int[] selectionSort(int[] arr, BiFunction<Integer, Integer, Boolean> stmt){
         for (int i = 0; i < arr.length-1; i++) {
-            int minIdx = i;
+            int swapIdx = i;
             for (int j = i; j < arr.length; j++) {
-                if (stmt.apply(arr[minIdx],arr[j])){
-                    minIdx = j;
+                if (stmt.apply(arr[swapIdx],arr[j])){
+                    swapIdx = j;
                 }
             }
             int tmp = arr[i];
-            arr[i] = arr[minIdx];
-            arr[minIdx] = tmp;
+            arr[i] = arr[swapIdx];
+            arr[swapIdx] = tmp;
 
         }
         return arr;
@@ -28,5 +30,13 @@ public class SelectionSort {
 
         SelectionSort ss = new SelectionSort();
         System.out.println(Arrays.toString(ss.selectionSort(arr, (a, b)-> a>b)));
+
+
+        //Function<T,R> 인터페이스 쓰는 법
+        Function<Integer[], Boolean> fn = (arr1) -> arr1[0] > arr1[1];
+        System.out.println(fn.apply(new Integer[]{10,20}));
+
+        //BiFunction<T,U,R>
+        BiFunction<Integer, Integer, Boolean> biFunction = (a, b) -> a > b;
     }
 }
