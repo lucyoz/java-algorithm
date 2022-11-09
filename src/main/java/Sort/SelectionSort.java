@@ -2,14 +2,16 @@ package Sort;
 
 import java.util.Arrays;
 
-public class SelectionSort {
-    public static void main(String[] args) {
-        int[] arr = new int[]{2, 7, 4, 9, 10, 223, 111, 23, 3, 39};
+interface StatemetnStrategy{
+    boolean apply(int a, int b);
+}
 
-        for (int i = 0; i < arr.length; i++) {
+public class SelectionSort {
+    public int[] selectionSort(int[] arr, StatemetnStrategy stmt){
+        for (int i = 0; i < arr.length-1; i++) {
             int minIdx = i;
             for (int j = i; j < arr.length; j++) {
-                if (arr[minIdx]>arr[j]){
+                if (stmt.apply(arr[minIdx],arr[j])){
                     minIdx = j;
                 }
             }
@@ -18,8 +20,13 @@ public class SelectionSort {
             arr[minIdx] = tmp;
 
         }
+        return arr;
+    }
 
-        System.out.println(Arrays.toString(arr));
+    public static void main(String[] args) {
+        int[] arr = new int[]{2, 7, 4, 9, 10, 223, 111, 23, 3, 39};
 
+        SelectionSort ss = new SelectionSort();
+        System.out.println(Arrays.toString(ss.selectionSort(arr, (a, b)-> a>b)));
     }
 }
