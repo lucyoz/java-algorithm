@@ -2,7 +2,7 @@ package programmers.bruteforce;
 
 public class SieveOfEratosthenes {
 
-    public int solution(int n){
+    public int[] solution(int n){
         int[] arr = new int[n-1];
 
         for (int i = 0; i < arr.length; i++) {
@@ -11,24 +11,37 @@ public class SieveOfEratosthenes {
 
         int Nsqrt = (int)Math.sqrt(n);
 
-        int count = arr.length;
-        for (int i = 2; i<= Nsqrt; i++) {
-            for (int j = 0; j < arr.length; j++) {
-                if(arr[j]%i==0 && arr[j]!=i && arr[j]!=0){
-                    arr[j] = 0;
-                    count--;
+        int count = n-1;
+        for (int j = 0; j*j<=n; j++) {
+
+            if(arr[j]!=0){
+                int multipleOf = arr[j];
+                for (int k = j*2+2; k < arr.length; k+=multipleOf) {
+                    if(arr[k]!=0){
+                        arr[k] = 0;
+                    }
+
                 }
             }
 
+
+
         }
-        return count;
+        return arr;
 
     }
 
     public static void main(String[] args) {
 
         SieveOfEratosthenes sieveOfEratosthenes = new SieveOfEratosthenes();
-        int answer = sieveOfEratosthenes.solution(10);
-        System.out.println(answer);
+        int cnt = 0;
+
+        int[] answer = sieveOfEratosthenes.solution(10);
+        for (int i = 0; i < answer.length; i++) {
+            if(answer[i] != 0){
+                cnt++;
+            }
+        }
+        System.out.println(cnt);
     }
 }
