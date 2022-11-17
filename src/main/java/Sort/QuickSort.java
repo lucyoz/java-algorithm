@@ -5,10 +5,10 @@ import java.util.Arrays;
 public class QuickSort {
 
     public int[] sort(int[] arr, int startIdx, int endIdx){
-        int pivot = arr[arr.length/2];
+        int pivot = arr[(startIdx+endIdx)/2];
 
         System.out.println("pivot: "+pivot);
-        int leftIdx = 0, rightIdx = arr.length-1;
+        int leftIdx = startIdx, rightIdx = endIdx;
 
         while(leftIdx<=rightIdx){
             while (pivot > arr[leftIdx]){
@@ -26,6 +26,8 @@ public class QuickSort {
             }
         }
 
+        if(startIdx<rightIdx)   sort(arr, startIdx, rightIdx);
+        if(leftIdx<endIdx)   sort(arr,leftIdx,endIdx);
         System.out.println(Arrays.toString(arr));
 
         return arr;
