@@ -4,10 +4,7 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-
-    public static void main(String[] args) {
-        int[] arr = {20, 18, 5, 19, 40, 5, 50, 25};
-
+    public int[] sort(int[] arr, int startIdx, int endIdx){
         int pivot = arr[arr.length/2];
 
         System.out.println("pivot: "+pivot);
@@ -30,6 +27,17 @@ public class QuickSort {
         }
 
         System.out.println(Arrays.toString(arr));
+
+        return arr;
+    }
+
+
+    public static void main(String[] args) {
+        int[] arr = {20, 18, 5, 19, 40, 5, 50, 25};
+
+        QuickSort quickSort = new QuickSort();
+        int[] sortedArr = quickSort.sort(arr, 0, arr.length-1);
+
 
     }
 }
