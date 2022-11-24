@@ -1,4 +1,4 @@
-package recursive;
+package recursive.codeup;
 
 import java.io.BufferedReader;
 import java.io.IOException;
