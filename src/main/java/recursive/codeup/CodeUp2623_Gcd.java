@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+//재귀 사용하여 풀기
 public class CodeUp2623_Gcd {
     public static int getGcd(int a, int b){
         if (a == b) return a;
