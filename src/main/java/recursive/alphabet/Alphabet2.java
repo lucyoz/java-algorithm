@@ -1,8 +1,10 @@
+package recursive.alphabet;
+
 public class Alphabet2 {
 //    private static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public static void printAtoZ(char c){
-        if (c=='Z') return;
+        if (c>'Z') return;
         System.out.println(c);
         printAtoZ((char)(c+1));
     }
@@ -17,6 +19,5 @@ public class Alphabet2 {
         */
 
         printAtoZ('A');
-
     }
 }

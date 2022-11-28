@@ -1,3 +1,5 @@
+package recursive.alphabet;
+
 public class Alphabet1 {
     public void printAlphabet(){
         for (int i = 0;  i< 26; i++) {
