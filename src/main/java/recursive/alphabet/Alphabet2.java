@@ -9,7 +9,7 @@ public class Alphabet2 {
         printAtoZ((char)(c+1), prefix);
     }
     public static void printAlphabet(String prefix, int depth){
-        if(prefix.length()>depth){
+        if(prefix.length()>=depth){
             System.out.println(prefix);
             return;
         }
