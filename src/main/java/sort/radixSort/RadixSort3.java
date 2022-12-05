@@ -1,4 +1,4 @@
-package Sort.radixSort;
+package sort.radixSort;
 
 import java.util.*;
 
