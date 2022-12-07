@@ -7,16 +7,20 @@ public class Spicier {
     public int solution(int[] scoville, int K) {
         int answer = 0;
 
-        PriorityQueue pq = new PriorityQueue();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         for(int sco : scoville){
             pq.add(sco);
         }
 
-        while((int)pq.peek()<K){
-            int a = (int) pq.poll();
-            int b = (int) pq.poll();
+        while(pq.size()>1 && pq.peek()<K){
+            int a =  pq.poll();
+            int b =  pq.poll();
             pq.add(a+2*b);
             answer++;
+        }
+
+        if (pq.size()<=1 && pq.peek()<K){
+            answer = -1;
         }
 
         return answer;
