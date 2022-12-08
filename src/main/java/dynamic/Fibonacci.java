@@ -15,7 +15,20 @@ public class Fibonacci {
         return memo[n];
     }
 
+    public static long fiboDP2(int n, long[] memo){
+
+        if(n<=1)    return 1;
+        if (memo[n] == 0){
+            memo[n] = fiboDP2(n-1, memo) + fiboDP2(n-2, memo);
+        }
+        return memo[n];
+    }
+
     public static void main(String[] args) {
-        System.out.println(fiboDP(7));
+        //System.out.println(fiboDP(7));
+
+        int n = 7;
+        long r = fiboDP2(n, new long[n+1]);
+        System.out.println(r);
     }
 }
