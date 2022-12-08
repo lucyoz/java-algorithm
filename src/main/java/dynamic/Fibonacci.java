@@ -17,7 +17,8 @@ public class Fibonacci {
 
     public static long fiboDP2(int n, long[] memo){
 
-        if(n<=1)    return 1;
+        if (n==0)   throw new IllegalArgumentException("n은 1이상이어야합니다.");
+        if(n<=2)    return 1;
         if (memo[n] == 0){
             memo[n] = fiboDP2(n-1, memo) + fiboDP2(n-2, memo);
         }
