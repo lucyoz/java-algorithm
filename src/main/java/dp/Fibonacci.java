@@ -1,4 +1,4 @@
-package dynamic;
+package dp;
 
 public class Fibonacci {
     public static int fiboDP(int n){
